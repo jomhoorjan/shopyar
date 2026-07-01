@@ -1,0 +1,25 @@
+# Virtual Environment
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
+
+# Uploads
+backend/uploads/
+
+# Environment variables
+.env
+
+# Logs
+*.log
+# Python bytecode
+__pycache__/
+*.py[cod]
+__pycache__/
+*.py[cod]
+backend/uploads/*
+!backend/uploads/.gitkeep

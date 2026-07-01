@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopyar</title>
+</head>
+<body>
+
+<h1>Shopyar</h1>
+
+<input type="file" id="receipt">
+<button onclick="uploadReceipt()">آپلود قبض</button>
+
+<p id="result"></p>
+
+<script>
+async function uploadReceipt() {
+
+    const fileInput = document.getElementById("receipt");
+
+    if(fileInput.files.length===0){
+        alert("ابتدا یک عکس انتخاب کن");
+        return;
+    }
+
+    const formData = new FormData();
+
+    formData.append("file",fileInput.files[0]);
+
+    const response = await fetch("http://127.0.0.1:8000/upload",{
+        method:"POST",
+        body:formData
+    });
+
+    const data = await response.json();
+
+    document.getElementById("result").innerHTML=data.message;
+}
+</script>
+
+</body>
+</html>
